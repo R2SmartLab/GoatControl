@@ -1,0 +1,3 @@
+action: goat_area.start_area
+data:
+  area: "129"
