@@ -1,0 +1,7 @@
+alias: Start GOAT Area
+trigger: []
+action:
+  - action: goat_area.start_area
+    data:
+      area: "129"
+mode: single
