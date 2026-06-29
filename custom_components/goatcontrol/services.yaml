@@ -1,0 +1,11 @@
+start_area:
+  name: Start area
+  description: Request GoatControl to start cleaning a specific area.
+  fields:
+    area:
+      name: Area
+      description: Area identifier to request.
+      example: "129"
+      required: true
+      selector:
+        text:
