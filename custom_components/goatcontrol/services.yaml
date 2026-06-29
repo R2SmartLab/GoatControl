@@ -1,11 +1,18 @@
 start_area:
-  name: Start area
-  description: Request GoatControl to start cleaning a specific area.
+  name: Start GOAT area
+  description: Start the Ecovacs GOAT mower in a specific saved area.
   fields:
     area:
       name: Area
-      description: Area identifier to request.
+      description: Saved GOAT area identifier to start.
       example: "129"
       required: true
       selector:
-        text:
+        text: {}
+    entity_id:
+      name: Entity ID
+      description: Lawn mower entity to control.
+      example: "lawn_mower.mahcedes"
+      required: false
+      selector:
+        text: {}
