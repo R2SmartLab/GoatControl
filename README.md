@@ -1,46 +1,46 @@
-# 🐐 GoatControl
+# GoatControl
 
-Control Ecovacs GOAT mowing areas directly from Home Assistant.
-GoatControl provides a simple and reliable way to start individual mowing areas, build automations and integrate Ecovacs GOAT robots into advanced smart home workflows.
+GoatControl is a Home Assistant custom integration for Ecovacs GOAT robotic mowers.
+
+The current working feature is starting individual mowing areas from Home Assistant. GoatControl can use friendly area names or raw Ecovacs area IDs, making it suitable for dashboards, scripts, automations and webhooks.
 
 ## Features
 
-- ✅ Start individual mowing areas
-- ✅ Home Assistant service integration
-- ✅ Webhook support
-- ✅ Fast execution
-- ✅ Designed for automation
-- 🚧 openHAB support (planned)
-- 🚧 HACS installation (planned)
+- Start individual mowing areas
+- Friendly area names
+- Home Assistant action integration
+- Command locking
+- Timeout handling
+- Logging
 
-## Example
+## Current area mapping
+
+- Mähfläche 1 -> 129
+- Mähfläche 2 -> 130
+
+Raw IDs such as `"129"` and `"130"` are still supported.
+
+## Usage example
 
 ```yaml
-action: goat_area.start_area
+action: goatcontrol.start_area
 data:
-  area: "129"
+  area: "Mähfläche 1"
 ```
-
-## Roadmap
-
-- [x] Start individual areas
-- [ ] Area name support
-- [ ] Entity selector
-- [ ] Status sensors
-- [ ] Schedule support
-- [ ] HACS integration
-- [ ] openHAB integration
-- [ ] Documentation
 
 ## Compatibility
 
 - Home Assistant
-- Ecovacs GOAT Series
+- Ecovacs GOAT series
+- Tested with entity `lawn_mower.mahhcedes`
+
+## Status
+
+GoatControl is experimental. The current implementation relies on private Home Assistant / Ecovacs internals, so behavior may change when those integrations change.
 
 ## License
 
 MIT License
-
 
 Developed by **R²SmartLab**
 

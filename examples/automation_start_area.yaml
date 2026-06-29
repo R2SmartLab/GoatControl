@@ -1,7 +1,7 @@
-alias: Start GOAT Area
+alias: Start GOAT Mähfläche 1
 trigger: []
 action:
-  - action: goat_area.start_area
+  - action: goatcontrol.start_area
     data:
-      area: "129"
+      area: "Mähfläche 1"
 mode: single
