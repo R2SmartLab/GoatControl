@@ -12,7 +12,7 @@ start_area:
     entity_id:
       name: Entity ID
       description: Lawn mower entity to control.
-      example: "lawn_mower.mahcedes"
+      example: "lawn_mower.mahhcedes"
       required: false
       selector:
         text: {}
