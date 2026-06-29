@@ -3,12 +3,17 @@ start_area:
   description: Start the Ecovacs GOAT mower in a specific saved area.
   fields:
     area:
-      name: Area
-      description: Saved GOAT area identifier to start.
-      example: "129"
+      name: Mähfläche
+      description: Selected GOAT area name; GoatControl converts it to the Ecovacs area ID before sending the command.
+      example: "Mähfläche 1"
       required: true
       selector:
-        text: {}
+        select:
+          options:
+            - label: Mähfläche 1
+              value: Mähfläche 1
+            - label: Mähfläche 2
+              value: Mähfläche 2
     entity_id:
       name: Entity ID
       description: Lawn mower entity to control.

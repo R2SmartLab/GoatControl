@@ -18,6 +18,11 @@ ATTR_AREA = "area"
 ATTR_ENTITY_ID = "entity_id"
 DEFAULT_ENTITY_ID = "lawn_mower.mahhcedes"
 
+AREA_MAP = {
+    "Mähfläche 1": "129",
+    "Mähfläche 2": "130",
+}
+
 START_AREA_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_AREA): cv.string,
@@ -34,11 +39,13 @@ async def async_setup(hass, config):
 
     async def async_start_area(call):
         """Handle the start_area action."""
-        area = call.data[ATTR_AREA]
+        requested_area = call.data[ATTR_AREA]
+        area = AREA_MAP.get(requested_area, requested_area)
         entity_id = call.data[ATTR_ENTITY_ID]
         _LOGGER.info(
-            "Requested GoatControl start_area for entity_id=%s area=%s",
+            "Requested GoatControl start_area for entity_id=%s requested_area=%s resolved_area=%s",
             entity_id,
+            requested_area,
             area,
         )
 
