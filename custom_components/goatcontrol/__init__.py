@@ -16,7 +16,7 @@ _LOGGER = logging.getLogger(__name__)
 SERVICE_START_AREA = "start_area"
 ATTR_AREA = "area"
 ATTR_ENTITY_ID = "entity_id"
-DEFAULT_ENTITY_ID = "lawn_mower.mahcedes"
+DEFAULT_ENTITY_ID = "lawn_mower.mahhcedes"
 
 START_AREA_SCHEMA = vol.Schema(
     {
@@ -61,8 +61,15 @@ async def async_setup(hass, config):
                     return
 
                 for ent in component.entities:
-                    if ent.entity_id == entity_id:
-                        device = ent._device
+                    if getattr(ent, "entity_id", None) == entity_id:
+                        device = getattr(ent, "_device", None)
+                        if device is None:
+                            _LOGGER.error(
+                                "Cannot start GoatControl area %s: entity %s has no Ecovacs device",
+                                area,
+                                entity_id,
+                            )
+                            return
                         command = CleanAreaV2(CleanMode.SPOT_AREA, area)
                         _LOGGER.info(
                             "Sending CleanAreaV2 to entity_id=%s area=%s",
